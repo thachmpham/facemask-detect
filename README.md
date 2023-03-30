@@ -1,19 +1,19 @@
-# Facemask Recognition
+# Toán Cho Trí Tuệ Nhân Tạo - Đề Tài Nhận Diện Khẩu Trang
 
 ## Giới Thiệu
 
-Do module phát hiện khuôn mặt vẫn phát hiện được khuôn mặt khi đeo khẩu trang, điều này dẫn đến rủi ro cho hệ thống khi đăng ký khuôn mặt vào cơ sở dữ liệu cũng như xác nhận khuôn mặt. Do đó cần có một bộ phân loại để loại bỏ các trường hợp đeo khẩu trang.
+Trong project này, chúng ta sẽ xây dựng model có khả năng phân biệt hai trường hợp: người trong ảnh có đeo khẩu trang và người trong ảnh không đeo khẩu trang. Project vận dụng một số phương pháp như Convolution Neural Network, Linear Regression, Logistic Regression và Backpropagation. 
 
 ## Chuẩn bị dữ liệu huấn luyện
 
 Tập data sử dụng để train và đánh giá model được lấy từ [Face Mask Detection Dataset](https://www.kaggle.com/datasets/omkargurav/face-mask-dataset). 
 Tập data gồm hai loại: 
 
-- Ảnh người đeo khẩu trang (with_mask)
+- Ảnh người đeo khẩu trang
 
-- Ảnh người không đeo khẩu trang (without_mask)
+- Ảnh người không đeo khẩu trang
 
-Tuy nhiên, ngoài khuôn mặt, ảnh trong tập data chứa nhiều thành phần khác như background, vai, mũ nón... Vì vậy, ta sẽ sử dụng model phát hiện khuôn mặt được trình bày ở mục 2.2 để tạo một tập data mới chỉ chứa khuôn mặt từ tập data cũ.
+Tuy nhiên, ngoài khuôn mặt, ảnh trong tập data chứa nhiều thành phần khác như background, vai, mũ nón... Vì vậy, ta sẽ sử dụng pretrain model phát hiện khuôn mặt để tạo một tập data mới chỉ chứa khuôn mặt từ tập data cũ.
 
 Để download và trích xuất data, ta sử dụng những lệnh sau đây.
 
@@ -56,21 +56,16 @@ load_pretrain(model, 'pretrain/mask-reg.pth')
 img = PIL.Image.open('input.png')
 is_mask_exist = predict(model, img) 
 
+# giải thích kết quả trả về
+# 0: không có khẩu trang
+# 1: có khẩu trang
 ```
 
 ## Nguồn tham khảo
-
-- Source code Face Detect của thành viên Nguyễn Y Hợp
-
 - [Face Mask Detection Kaggle Notebook](https://www.kaggle.com/code/charlessamuel/face-mask-detection-pytorch)
 
 
 ## Thành viên thực hiện
-
-- Nguyễn Y Hợp - 22C15006
-
-- Nguyễn Đăng Khoa - 22C15010
-
 - Phạm Minh Thạch - 22C15018
 
 
