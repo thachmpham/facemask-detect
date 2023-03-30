@@ -25,6 +25,8 @@ mv data/without_mask data/0
 python3 extract_face.py
 ```
 
+Quá trình extract data còn được mô tả ở file `extract_face.ipynb`
+
 ## Xác định cấu trúc model
 
 Mạng Convolutional Neural Network (CNN) được ứng dụng rộng rãi trong các bài toán xử lý ảnh. Trong bài này, chúng ta sẽ xây dựng một mạng CNN với cấu trúc như hình bên dưới. Lớp input nhận vào một ảnh có 3 channel và kích thước 32 x 32. Kích thước này được tham khảo từ Kaggle blog. Vì đặc trưng khẩu trang khá rõ ràng, nên dù kích thước input nhỏ, nhưng model vẫn cho kết quả chấp nhận được. Tại hidden layer, ta kết hợp lớp convolution và lớp max pool để làm giảm kích thước của ảnh mà vẫn giữ lại thông tin của bức ảnh nhiều nhất. Lớp flatten giúp chuyển data trên các convolution filter từ dạng đa chiều về một chiều. Sau lớp flatten, bức ảnh có kích thước 3 x 32 x 32 đã được chuyển đổi về dạng mảng 1 chiều của 300 đặc trưng. Tại đây, ta kết hợp linear regression và logistic regression để đưa output về 1 con số duy nhất thể hiện xác suất ảnh đó có khẩu trang hay không.
@@ -38,7 +40,9 @@ Train dataset có 5515 ảnh. Vì số lượng ảnh lớn nên ta chia train d
 Model được train với khoảng 20 epoch và learning rate là 0.001. Hàm loss được sử dụng là Binary Cross Entropy. Phương pháp được sử dụng để tối ưu bộ trọng số là Stochastic Gradient Descent.
 
 Để train và xem kết quả đánh giá model, ta dùng lệnh sau đây.  
-`python3 train_model.py`
+`python3 facemask_model.py`
+
+Quá trình train model còn được mô tả ở file `facemask_model.ipynb`.
 
 ## Hướng dẫn sử dụng inference module
 
