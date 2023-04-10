@@ -1,4 +1,4 @@
-# Toán Cho Trí Tuệ Nhân Tạo
+# Lập Trình Trí Tuệ Nhân 
 ## Đề Tài Nhận Diện Khẩu Trang
 
 ## Giới Thiệu
@@ -68,8 +68,7 @@ is_mask_exist = predict(model, img)
 
 ## Nguồn tham khảo
 - [Face Mask Detection Kaggle Notebook](https://www.kaggle.com/code/charlessamuel/face-mask-detection-pytorch)
-- Pretrain model phát hiện khuôn mặt của Nguyễn Y Hợp (bạn chung nhóm Máy Học)
-
+- Pretrain model phát hiện khuôn mặt của thành viên Nguyễn Y Hợp
 ## Thành viên thực hiện
 - Phạm Minh Thạch - 22C15018
 
